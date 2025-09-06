@@ -34,8 +34,8 @@ const WhyUs = () => {
           {features.map((feature, index) => (
             <div key={index} className="text-center group">
               {/* Icon Container */}
-              <div className="mx-auto w-20 h-20 bg-success/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-success/20 transition-colors">
-                <feature.icon className="h-10 w-10 text-success" />
+              <div className="mx-auto w-20 h-20 bg-accent/30 rounded-full flex items-center justify-center mb-6 group-hover:bg-accent/50 transition-colors">
+                <feature.icon className="h-10 w-10 text-foreground" />
               </div>
               
               {/* Content */}

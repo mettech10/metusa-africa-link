@@ -32,7 +32,7 @@ const SignupForm = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Join our waitlist today and be the first to know when we launch.
           </p>
-          <p className="text-success font-medium mt-4">
+          <p className="text-muted-foreground font-medium mt-4">
             💡 Early users will receive a special welcome bonus when we go live.
           </p>
         </div>
@@ -55,7 +55,7 @@ const SignupForm = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="h-12 border-input-border focus:border-success focus:ring-success"
+                  className="h-12 border-input-border focus:border-primary focus:ring-primary"
                 />
               </div>
               
@@ -70,13 +70,13 @@ const SignupForm = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="h-12 border-input-border focus:border-success focus:ring-success"
+                  className="h-12 border-input-border focus:border-primary focus:ring-primary"
                 />
               </div>
               
               <Button 
                 type="submit"
-                variant="success" 
+                variant="default" 
                 size="lg"
                 className="w-full"
               >

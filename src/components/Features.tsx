@@ -18,7 +18,7 @@ const Features = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <CheckCircle className="h-6 w-6 text-success flex-shrink-0" />
+              <CheckCircle className="h-6 w-6 text-foreground flex-shrink-0" />
               <h3 className="font-semibold text-foreground">Fair Exchange Rates</h3>
             </div>
             <p className="text-muted-foreground">
@@ -28,7 +28,7 @@ const Features = () => {
           
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <CheckCircle className="h-6 w-6 text-success flex-shrink-0" />
+              <CheckCircle className="h-6 w-6 text-foreground flex-shrink-0" />
               <h3 className="font-semibold text-foreground">Fast Transfers</h3>
             </div>
             <p className="text-muted-foreground">
@@ -38,7 +38,7 @@ const Features = () => {
           
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <CheckCircle className="h-6 w-6 text-success flex-shrink-0" />
+              <CheckCircle className="h-6 w-6 text-foreground flex-shrink-0" />
               <h3 className="font-semibold text-foreground">Secure Transactions</h3>
             </div>
             <p className="text-muted-foreground">
@@ -48,7 +48,7 @@ const Features = () => {
           
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <CheckCircle className="h-6 w-6 text-success flex-shrink-0" />
+              <CheckCircle className="h-6 w-6 text-foreground flex-shrink-0" />
               <h3 className="font-semibold text-foreground">Early User Rewards</h3>
             </div>
             <p className="text-muted-foreground">

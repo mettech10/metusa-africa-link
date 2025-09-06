@@ -26,7 +26,7 @@ const Hero = () => {
           
           {/* CTA Button */}
           <Button 
-            variant="success" 
+            variant="default" 
             size="lg"
             className="group px-8 py-4 text-lg font-semibold"
           >
