@@ -3,16 +3,13 @@ import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-20">
+    <section className="relative min-h-screen flex items-center justify-center px-4 py-20" id="hero">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary opacity-95"></div>
       
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
         <div className="space-y-6">
-          {/* Rocket emoji with animation */}
-          <div className="text-6xl mb-8 animate-bounce">🚀</div>
-          
           {/* Main headline */}
           <h1 className="text-hero font-bold leading-tight mb-6">
             Metusa is Redefining 
@@ -30,7 +27,7 @@ const Hero = () => {
             size="lg"
             className="group px-8 py-4 text-lg font-semibold"
           >
-            👉 Register for Early Access
+            Register for Early Access
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>

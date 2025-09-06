@@ -22,7 +22,7 @@ const SignupForm = () => {
   };
 
   return (
-    <section className="py-20 px-4 bg-background">
+    <section className="py-20 px-4 bg-background" id="signup">
       <div className="max-w-4xl mx-auto text-center">
         {/* Section Header */}
         <div className="mb-12">
