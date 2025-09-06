@@ -13,19 +13,41 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'hero': ['var(--font-size-hero)', { lineHeight: 'var(--line-height-tight)' }],
+        'heading': ['var(--font-size-heading)', { lineHeight: 'var(--line-height-tight)' }],
+        'subheading': ['var(--font-size-subheading)', { lineHeight: 'var(--line-height-relaxed)' }],
+      },
       colors: {
         border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
+        input: {
+          DEFAULT: "hsl(var(--input))",
+          border: "hsl(var(--input-border))",
+        },
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          gradient: "var(--background-gradient)",
+        },
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          hover: "hsl(var(--secondary-hover))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+          hover: "hsl(var(--success-hover))",
+          glow: "hsl(var(--success-glow))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -38,6 +60,7 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          light: "hsl(var(--accent-light))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -46,6 +69,7 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          shadow: "hsl(var(--card-shadow))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -57,6 +81,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      transitionProperty: {
+        'smooth': 'var(--transition)',
       },
       borderRadius: {
         lg: "var(--radius)",
