@@ -12,13 +12,13 @@ const Hero = () => {
         <div className="space-y-6">
           {/* Main headline */}
           <h1 className="text-hero font-bold leading-tight mb-6">
-            Metusa is Redefining 
-            <span className="block">Money Transfers to Africa</span>
+            Metusa: The Smarter Way 
+            <span className="block">to Send Money to Africa</span>
           </h1>
           
           {/* Subheadline */}
           <p className="text-subheading text-white/90 max-w-2xl mx-auto mb-12">
-            Fast, secure, and transparent international payments — built for the modern world.
+            Seamless, secure, and affordable cross-border payments — designed for trust and transparency.
           </p>
           
           {/* CTA Button */}
@@ -27,7 +27,7 @@ const Hero = () => {
             size="lg"
             className="group px-8 py-4 text-lg font-semibold"
           >
-            Register for Early Access
+            Join the Waitlist & Unlock Your Welcome Bonus
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>

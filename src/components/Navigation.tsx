@@ -31,9 +31,9 @@ const Navigation = () => {
         </button>
         <Button 
           onClick={() => scrollToSection('signup')}
-          variant="outline"
+          variant="default"
           size="sm"
-          className="border-white/20 text-white hover:bg-white hover:text-primary"
+          className="bg-white text-primary hover:bg-white/90 font-semibold"
         >
           Join Here
         </Button>
