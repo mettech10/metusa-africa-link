@@ -1,15 +1,7 @@
 import { useEffect } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-
-interface HubSpotModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 declare global {
   interface Window {
@@ -17,9 +9,10 @@ declare global {
   }
 }
 
-const HubSpotModal = ({ isOpen, onClose }: HubSpotModalProps) => {
+const Waitlist = () => {
   useEffect(() => {
-    if (isOpen && window.hbspt) {
+    // Load HubSpot form when component mounts
+    if (window.hbspt) {
       // Clear any existing form
       const formContainer = document.getElementById('hubspot-form-container');
       if (formContainer) {
@@ -36,7 +29,7 @@ const HubSpotModal = ({ isOpen, onClose }: HubSpotModalProps) => {
         cssClass: 'custom-hubspot-form'
       });
     }
-  }, [isOpen]);
+  }, []);
 
   useEffect(() => {
     // Add custom styles for HubSpot form using website's design system
@@ -160,20 +153,55 @@ const HubSpotModal = ({ isOpen, onClose }: HubSpotModalProps) => {
     document.head.appendChild(style);
     
     return () => {
-      document.head.removeChild(style);
+      if (document.head.contains(style)) {
+        document.head.removeChild(style);
+      }
     };
   }, []);
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-center">Join Our Waitlist</DialogTitle>
-        </DialogHeader>
-        <div id="hubspot-form-container" className="mt-6" />
-      </DialogContent>
-    </Dialog>
+    <div className="min-h-screen bg-background">
+      {/* Header with back button */}
+      <header className="border-b border-border">
+        <div className="container mx-auto px-4 py-4">
+          <Link to="/">
+            <Button variant="ghost" className="group">
+              <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+              Back to Home
+            </Button>
+          </Link>
+        </div>
+      </header>
+
+      {/* Main content */}
+      <main className="container mx-auto px-4 py-12">
+        <div className="max-w-md mx-auto">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-foreground mb-4">
+              Join Our Waitlist
+            </h1>
+            <p className="text-muted-foreground">
+              Be the first to experience the smarter way to send money to Africa. 
+              Get early access and unlock your welcome bonus!
+            </p>
+          </div>
+
+          {/* Form container */}
+          <div className="bg-card rounded-lg border border-border p-8 shadow-sm">
+            <div id="hubspot-form-container" />
+          </div>
+
+          {/* Benefits */}
+          <div className="mt-8 text-center text-sm text-muted-foreground">
+            <p className="mb-2">✓ Early access to Metusa platform</p>
+            <p className="mb-2">✓ Exclusive welcome bonus</p>
+            <p>✓ No spam, unsubscribe anytime</p>
+          </div>
+        </div>
+      </main>
+    </div>
   );
 };
 
-export default HubSpotModal;
+export default Waitlist;

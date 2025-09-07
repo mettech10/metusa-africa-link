@@ -1,10 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
-interface NavigationProps {
-  onOpenModal: () => void;
-}
-
-const Navigation = ({ onOpenModal }: NavigationProps) => {
+const Navigation = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -33,14 +30,15 @@ const Navigation = ({ onOpenModal }: NavigationProps) => {
         >
           Contact
         </button>
-        <Button 
-          onClick={onOpenModal}
-          variant="default"
-          size="sm"
-          className="bg-white text-primary hover:bg-white/90 font-semibold"
-        >
-          Join Here
-        </Button>
+        <Link to="/waitlist">
+          <Button 
+            variant="default"
+            size="sm"
+            className="bg-white text-primary hover:bg-white/90 font-semibold"
+          >
+            Join Here
+          </Button>
+        </Link>
       </div>
     </nav>
   );

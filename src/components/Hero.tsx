@@ -1,11 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-interface HeroProps {
-  onOpenModal: () => void;
-}
-
-const Hero = ({ onOpenModal }: HeroProps) => {
+const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20" id="hero">
       {/* Gradient Background */}
@@ -26,15 +23,16 @@ const Hero = ({ onOpenModal }: HeroProps) => {
           </p>
           
           {/* CTA Button */}
-          <Button 
-            variant="default" 
-            size="lg"
-            className="group px-8 py-4 text-lg font-semibold"
-            onClick={onOpenModal}
-          >
-            Join the Waitlist & Unlock Your Welcome Bonus
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <Link to="/waitlist">
+            <Button 
+              variant="default" 
+              size="lg"
+              className="group px-8 py-4 text-lg font-semibold"
+            >
+              Join the Waitlist & Unlock Your Welcome Bonus
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </div>
       </div>
       
