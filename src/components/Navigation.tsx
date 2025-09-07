@@ -1,6 +1,10 @@
 import { Button } from "@/components/ui/button";
 
-const Navigation = () => {
+interface NavigationProps {
+  onOpenModal: () => void;
+}
+
+const Navigation = ({ onOpenModal }: NavigationProps) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -30,7 +34,7 @@ const Navigation = () => {
           Contact
         </button>
         <Button 
-          onClick={() => scrollToSection('signup')}
+          onClick={onOpenModal}
           variant="default"
           size="sm"
           className="bg-white text-primary hover:bg-white/90 font-semibold"
