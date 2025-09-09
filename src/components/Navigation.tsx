@@ -30,15 +30,14 @@ const Navigation = () => {
         >
           Contact
         </button>
-        <Link to="/waitlist">
-          <Button 
-            variant="default"
-            size="sm"
-            className="bg-white text-primary hover:bg-white/90 font-semibold"
-          >
-            Join Here
-          </Button>
-        </Link>
+        <Button 
+          variant="default"
+          size="sm"
+          className="bg-white text-primary opacity-50 cursor-not-allowed font-semibold"
+          disabled
+        >
+          Join Here
+        </Button>
       </div>
     </nav>
   );
