@@ -23,15 +23,16 @@ const Hero = () => {
           </p>
           
           {/* CTA Button */}
-          <Button 
-            variant="default" 
-            size="lg"
-            className="group px-8 py-4 text-lg font-semibold opacity-50 cursor-not-allowed"
-            disabled
-          >
-            Join the Waitlist & Unlock Your Welcome Bonus
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <Link to="/waitlist">
+            <Button 
+              variant="default" 
+              size="lg"
+              className="group px-8 py-4 text-lg font-semibold"
+            >
+              Join the Waitlist & Unlock Your Welcome Bonus
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </div>
       </div>
       
