@@ -41,18 +41,75 @@ const Waitlist = () => {
               </p>
             </div>
 
-            {/* HubSpot Form Card */}
+            {/* Waitlist Form Card */}
             <Card className="bg-white/5 border-white/10 backdrop-blur-sm">
               <div className="p-6">
-                <iframe
-                  src="https://share-eu1.hsforms.com/1niQAR-2hR4qyLkJXUMNHAw2ev8kg"
-                  width="100%"
-                  height="600"
-                  frameBorder="0"
-                  title="Waitlist Form"
-                  className="rounded-md"
-                  loading="lazy"
-                />
+                <form className="space-y-6">
+                  <div>
+                    <label htmlFor="firstName" className="block text-sm font-medium mb-2">
+                      First Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      required
+                      className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
+                      placeholder="Enter your first name"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="lastName" className="block text-sm font-medium mb-2">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      required
+                      className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
+                      placeholder="Enter your last name"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
+                      placeholder="Enter your phone number"
+                    />
+                  </div>
+
+                  <Button 
+                    type="submit"
+                    className="w-full bg-white text-primary hover:bg-white/90 font-semibold py-3"
+                  >
+                    Join the Waitlist
+                  </Button>
+                </form>
+                
+                {/* HubSpot form will be injected here */}
+                <div id="hubspot-form"></div>
                 
                 {/* Privacy note */}
                 <p className="text-xs text-primary-foreground/60 text-center mt-4">
