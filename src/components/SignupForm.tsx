@@ -5,6 +5,13 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 
+// Declare HubSpot global for TypeScript
+declare global {
+  interface Window {
+    hbspt?: any;
+  }
+}
+
 const SignupForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,6 +21,31 @@ const SignupForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email) {
+      // Send data to HubSpot invisibly
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          portalId: "145904416",
+          formId: "9e240047-eda1-478a-b22e-425750c34703",
+          region: "eu1",
+          target: document.createElement('div'), // Hidden target
+          submitButtonClass: 'hidden-hubspot-submit',
+          onFormReady: function(form: any) {
+            // Hide the HubSpot form completely
+            form.style.display = 'none';
+            // Auto-fill and submit with our data
+            const nameField = form.querySelector('input[name="firstname"]') || form.querySelector('input[name="name"]');
+            const emailField = form.querySelector('input[name="email"]');
+            if (nameField) nameField.value = formData.name;
+            if (emailField) emailField.value = formData.email;
+            // Submit the hidden form
+            setTimeout(() => {
+              const submitBtn = form.querySelector('input[type="submit"]');
+              if (submitBtn) submitBtn.click();
+            }, 100);
+          }
+        });
+      }
+      
       toast.success("Thanks! We'll notify you when Metusa launches.", {
         description: "Early users will receive a special welcome bonus."
       });

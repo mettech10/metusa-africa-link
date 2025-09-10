@@ -8,6 +8,13 @@ import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 
+// Declare HubSpot global for TypeScript
+declare global {
+  interface Window {
+    hbspt?: any;
+  }
+}
+
 const Waitlist = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -23,6 +30,41 @@ const Waitlist = () => {
     if (!formData.firstName || !formData.lastName || !formData.email) {
       toast.error("Please fill in all required fields");
       return;
+    }
+    
+    // Send data to HubSpot invisibly
+    if (window.hbspt) {
+      window.hbspt.forms.create({
+        portalId: "145904416",
+        formId: "9e240047-eda1-478a-b22e-425750c34703",
+        region: "eu1",
+        target: document.createElement('div'), // Hidden target
+        submitButtonClass: 'hidden-hubspot-submit',
+        onFormReady: function(form: any) {
+          // Hide the HubSpot form completely
+          form.style.display = 'none';
+          // Auto-fill and submit with our data
+          const firstNameField = form.querySelector('input[name="firstname"]');
+          const lastNameField = form.querySelector('input[name="lastname"]');
+          const emailField = form.querySelector('input[name="email"]');
+          const phoneField = form.querySelector('input[name="phone"]');
+          const companyField = form.querySelector('input[name="company"]');
+          const messageField = form.querySelector('textarea[name="message"]');
+          
+          if (firstNameField) firstNameField.value = formData.firstName;
+          if (lastNameField) lastNameField.value = formData.lastName;
+          if (emailField) emailField.value = formData.email;
+          if (phoneField) phoneField.value = formData.phone;
+          if (companyField) companyField.value = formData.company;
+          if (messageField) messageField.value = formData.message;
+          
+          // Submit the hidden form
+          setTimeout(() => {
+            const submitBtn = form.querySelector('input[type="submit"]');
+            if (submitBtn) submitBtn.click();
+          }, 100);
+        }
+      });
     }
     
     toast.success("Thank you! You've been added to our waitlist. We'll be in touch soon!", {
